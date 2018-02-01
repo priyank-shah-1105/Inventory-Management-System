@@ -1,0 +1,86 @@
+﻿@using BusinessLayer
+@using Client
+@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+
+
+
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Vendor
+                </h3>
+            </div>
+            <div class="panel-body">
+                @(Html.Kendo().Grid<usp_GetVendor_Result>()
+                      .Name("grid")
+                      .Columns(columns =>
+                      {
+                          columns.Command(command =>
+                          {
+                              command.Edit().Text(" ").UpdateText(" ").CancelText(" ");
+                              command.Destroy().Text(" ");
+                          })
+                              .Title("Action")
+                              .HtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit).HeaderHtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit);
+                          columns.Bound(d => d.Name).Title("Name");
+                          columns.Bound(d => d.Email).Title("Email");
+                          columns.Bound(d => d.Phone).Title("Mobile #");
+                          columns.Bound(d => d.City).Title("City");
+                          columns.ForeignKey(p => p.CreatedBy, (System.Collections.IEnumerable)ViewBag.Users, "UserId", "Name").Title("Created By");
+                          columns.Bound(o => o.CreatedOn).Format("{0:dd/MMM/yyyy}");
+                          columns.Bound(d => d.IsActive).Title("Status")
+                              .ClientTemplate(Html.SetStatusClientTemplate("IsActive", ControllerName.Branch, "ChangeStatus",
+                                  "id=#= VendorId #", "#= VendorId #", "grid", "Vendor")).HtmlAttributes(CommonSettings.StatusColumnStyle)
+                              .HeaderHtmlAttributes(CommonSettings.StatusColumnStyle);
+
+                      })
+                      .Editable(editable =>
+                      {
+                          editable.Mode(GridEditMode.PopUp);
+                          editable.DisplayDeleteConfirmation("Are you sure you want to delete the Vendor?");
+                      })
+                               .ToolBar(toolbar => toolbar.Create().Text("Add Vendor"))
+                      .Pageable()
+                      .Filterable(filterable => filterable
+                        .Extra(true)
+                        .Operators(ops =>
+                            ops.ForString(str => str.Clear()
+                                                    .Contains("Contains")
+                                                    .StartsWith("Starts with")
+                                                    .EndsWith("Ends with")
+                                                    .IsEqualTo("Is equal to"))
+                        ))
+                      .Sortable(sortable => sortable.AllowUnsort(false))
+                      .Events(grid => grid.Edit("edit"))
+                      .DataSource(dataSource => dataSource
+                          .Ajax()
+                          .ServerOperation(false)
+                                  .Group(group => group.Add(p => p.Branch))
+                          .PageSize(CommonHelper.PageSize)
+                          .Events(events => events.Error("onError"))
+                          .Model(model => model.Id(d => d.VendorId))
+                                  .Read(read => read.Action(ActionName.KendoRead, ControllerName.Vendor))
+                                  .Destroy(delete => delete.Action(ActionName.KendoDestroy, ControllerName.Vendor))
+                                  .Create(update => update.Action(ActionName.KendoSave, ControllerName.Vendor))
+                          .Update(update => update.Action(ActionName.KendoSave, ControllerName.Vendor))
+
+                      ))
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function edit(e) {
+        if (e.model.isNew()) {
+            e.model.set("IsActive", true);
+            e.model.set("CreatedBy", '@SessionHelper.UserId');
+            e.model.set("CreatedOn", '@DateTime.Now');
+        }
+    }
+</script>

@@ -1,0 +1,14 @@
+﻿@using CommonLayer
+@using Kendo.Mvc.UI
+
+
+@model DataLayer.DatabaseModel.UsersMaster
+
+
+
+@(Html.Kendo().DropDownListFor(m => m.UserId)
+        .Name("CreatedBy")
+        .OptionLabel(CommonHelper.PleaseSelect)
+            .DataTextField("Name")
+            .DataValueField("UserId")
+            .BindTo(ViewBag.Users))

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE8063A6-E16D-4E8F-B96D-5B025107AD41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomModels\LoginIndexModel.cs" />
+    <Compile Include="DatabaseModel\BranchMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\InvoiceLineMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\InvoiceMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ItemMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PartyMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Payment.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PurchaseItemMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PurchaseMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Purchasepay.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Repository\CustomRepository.cs" />
+    <Compile Include="DatabaseModel\Repository\GenericRepository.cs" />
+    <Compile Include="DatabaseModel\rptInvoiceLines_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\rptInvoices_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\rptPurchaseItems_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\rptPurchases1_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\rptPurchases_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\rptPurchase_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\StockItemMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\StockMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\UnitMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_DashboardStocks_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetCustomer_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetInvoiceLines_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetInvoices_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetItems_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetPurchaseLines_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetPurchases_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetStocksLines_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetStocks_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\usp_GetVendor_Result.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VendorMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedEntities\BaseContext.cs" />
+    <Compile Include="DatabaseModel\Stock.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stock.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Stock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Stock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stock.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\UsersMaster.cs">
+      <DependentUpon>Stock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedEntities\MetaDataModel.cs" />
+    <Compile Include="Helper\SelectionList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLayer\CommonLayer.csproj">
+      <Project>{8e14d831-d877-4d62-9b81-34a42c91acc7}</Project>
+      <Name>CommonLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DatabaseModel\Stock.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Stock.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="DatabaseModel\Stock.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stock.edmx</DependentUpon>
+      <LastGenOutput>Stock.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DatabaseModel\Stock.edmx.diagram">
+      <DependentUpon>Stock.edmx</DependentUpon>
+    </None>
+    <None Include="DatabaseModel\Stock.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stock.edmx</DependentUpon>
+      <LastGenOutput>Stock.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

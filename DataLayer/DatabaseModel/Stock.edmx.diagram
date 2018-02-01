@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="015fd3658f3d4d80a2b56a2161bcb6a8" Name="Diagram1">
+        <EntityTypeShape EntityType="StockModel.BranchMaster" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.ItemMaster" Width="1.5" PointX="10.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.PartyMaster" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockModel.UsersMaster" Width="1.5" PointX="3" PointY="4.75" />
+        <AssociationConnector Association="StockModel.FK_UsersMaster_BranchMaster" />
+        <AssociationConnector Association="StockModel.FK_PartyMaster_UsersMaster" />
+        <EntityTypeShape EntityType="StockModel.UnitMaster" Width="1.5" PointX="8.25" PointY="9.75" />
+        <AssociationConnector Association="StockModel.FK_ItemMaster_UnitMaster" />
+        <EntityTypeShape EntityType="StockModel.InvoiceMaster" Width="1.5" PointX="7.5" PointY="4.625" />
+        <AssociationConnector Association="StockModel.FK_InvoiceMaster_PartyMaster" />
+        <AssociationConnector Association="StockModel.FK_InvoiceMaster_UsersMaster" />
+        <EntityTypeShape EntityType="StockModel.InvoiceLineMaster" Width="1.5" PointX="9.75" PointY="1.25" />
+        <AssociationConnector Association="StockModel.FK_InvoiceLineMaster_InvoiceMaster" />
+        <AssociationConnector Association="StockModel.FK_InvoiceLineMaster_ItemMaster" />
+        <EntityTypeShape EntityType="StockModel.Payment" Width="1.5" PointX="15.75" PointY="4.875" />
+        <AssociationConnector Association="StockModel.FK_Payment_InvoiceMaster" />
+        <AssociationConnector Association="StockModel.FK_Payment_PartyMaster" />
+        <EntityTypeShape EntityType="StockModel.StockMaster" Width="1.5" PointX="10.5" PointY="5" />
+        <AssociationConnector Association="StockModel.FK_StockMaster_PartyMaster" />
+        <AssociationConnector Association="StockModel.FK_Payment_StockMaster" />
+        <AssociationConnector Association="StockModel.FK_StockMaster_UsersMaster" />
+        <EntityTypeShape EntityType="StockModel.StockItemMaster" Width="1.5" PointX="11.24436487408558" PointY="19.465288484220061" />
+        <AssociationConnector Association="StockModel.FK_StockItemMaster_ItemMaster" />
+        <AssociationConnector Association="StockModel.FK_StockItemMaster_StockMaster" />
+        <AssociationConnector Association="StockModel.FK_Payment_UsersMaster" />
+        <EntityTypeShape EntityType="StockModel.VendorMaster" Width="1.5" PointX="5.25" PointY="9.375" />
+        <AssociationConnector Association="StockModel.FK_VendorMaster_UsersMaster" />
+        <EntityTypeShape EntityType="StockModel.PurchaseItemMaster" Width="1.5" PointX="12.75" PointY="13" />
+        <EntityTypeShape EntityType="StockModel.PurchaseMaster" Width="1.5" PointX="7.5" PointY="12.125" />
+        <EntityTypeShape EntityType="StockModel.Purchasepay" Width="1.5" PointX="12.75" PointY="8.125" />
+        <AssociationConnector Association="StockModel.FK_PurchaseItemMaster_ItemMaster" />
+        <AssociationConnector Association="StockModel.FK_PurchaseItemMaster_PurchaseMaster" />
+        <AssociationConnector Association="StockModel.FK_PurchaseMaster_UsersMaster" />
+        <AssociationConnector Association="StockModel.FK_PurchaseMaster_VendorMaster" />
+        <AssociationConnector Association="StockModel.FK_Purchasepay_PurchaseMaster" />
+        <AssociationConnector Association="StockModel.FK_Purchasepay_UsersMaster" />
+        <AssociationConnector Association="StockModel.FK_Purchasepay_VendorMaster" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

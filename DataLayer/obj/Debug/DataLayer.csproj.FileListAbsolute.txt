@@ -1,0 +1,170 @@
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+E:\Websites\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+E:\Websites\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\Websites\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+E:\Websites\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\Vinod\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\Vinod\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Vinod\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\Vinod\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\visual studio projects\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\visual studio projects\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\visual studio projects\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\visual studio projects\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\temperory\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\temperory\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\temperory\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\temperory\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\Permanat main project\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Permanat main project\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\Permanat main project\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\Permanat main project\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj part4\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj did some changes on permanant basis\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj permanant run part 5.3\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 5.3.1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\main proj final sir\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\last\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\last\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\last\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\last\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\last1\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\last1\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\last1\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\last1\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll.config
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\DataLayer.dll
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\DataLayer.pdb
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\EntityFramework.dll
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\last4\Stock\Stock\DataLayer\bin\Debug\EntityFramework.xml
+D:\List of projects execution\last4\Stock\Stock\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\last4\Stock\Stock\DataLayer\obj\Debug\DataLayer.dll
+D:\List of projects execution\last4\Stock\Stock\DataLayer\obj\Debug\DataLayer.pdb

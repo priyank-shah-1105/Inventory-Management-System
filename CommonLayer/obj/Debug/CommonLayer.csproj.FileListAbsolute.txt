@@ -1,0 +1,60 @@
+E:\Websites\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+E:\Websites\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+E:\Websites\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+E:\Websites\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+E:\Websites\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\Vinod\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\Vinod\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\Vinod\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\Vinod\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\Vinod\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.dll
+D:\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.xml
+D:\visual studio projects\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\visual studio projects\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\visual studio projects\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.dll
+D:\visual studio projects\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.xml
+D:\visual studio projects\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\visual studio projects\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\visual studio projects\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\temperory\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\temperory\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\temperory\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.dll
+D:\temperory\Stock\Stock\CommonLayer\bin\Debug\System.Web.Mvc.xml
+D:\temperory\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\temperory\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\temperory\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\Permanat main project\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\Permanat main project\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\Permanat main project\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\Permanat main project\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\Permanat main project\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part4\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part4\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part4\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part4\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part4\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.1\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.1\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part 4.1\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.1\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\List of projects execution\main proj part 4.6 final run\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\List of projects execution\main proj finally completed yupiieeee\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb
+D:\List of projects execution\last\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.dll
+D:\List of projects execution\last\Stock\Stock\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\List of projects execution\last\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.csprojResolveAssemblyReference.cache
+D:\List of projects execution\last\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.dll
+D:\List of projects execution\last\Stock\Stock\CommonLayer\obj\Debug\CommonLayer.pdb

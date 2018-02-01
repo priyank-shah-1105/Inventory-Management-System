@@ -1,0 +1,202 @@
+﻿@using BusinessLayer
+@using CommonLayer
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title -Demo</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/kendo/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.flat.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    <link href="~/Content/css/bootbox.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendoCustom.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/JQuery/jquery.js"></script>
+    <script src="~/Scripts/browser.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo/KendoCustom.js"></script>
+    <script src="~/Scripts/kendo/kendo.culture.en-GB.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.validate.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Custom/Common.js"></script>
+</head>
+<body>
+    <div class="site-holder mini-sidebar">
+        <nav class="navbar  navbar-default nav-delighted " role="navigation">
+            <a href="#" class="toggle-left-sidebar">
+                <i class="fa fa-th-list"></i>
+            </a>
+
+           <div class="navbar-header">
+                <a class="navbar-brand" href="@Url.Action(ActionName.Index, ControllerName.Home)" style="margin-left: 10px !important">
+                    <img src="@ThemeUrl.ImageUrl.GetClientSideFile("images/delighted.png")" alt="" />
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@CommonHelper.CreateURL(ActionName.LogOut, ControllerName.Login)" class="logout">
+                            <i class="fa fa-power-off"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="box-holder">
+            <div class="left-sidebar">
+                <div class="sidebar-holder">
+                    <!-- User   -->
+                    <div class="user-menu">
+                        <img src="~/images/avatar.png" alt="" class="avatar">
+                        <div class="user-info">
+                            <div class="welcome">Welcome,</div>
+                            <div class="username">@SessionHelper.WelcomeUser</div>
+                        </div>
+                        <div class="user-status">
+                            <i class="fa fa-circle "></i>
+                        </div>
+                    </div>
+                    <!-- Menu -->
+                    <ul class="nav  nav-list">
+                        <li class=''>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Home)' data-original-title='Home' id="Home">
+                                <i class='icon ion-home'></i>
+                                <span class='hidden-minibar'>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Invoice)' data-original-title='Branch' id="Invoice">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Invoice
+                                </span>
+                            </a>
+                        </li>
+                        @*<li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Stock)' data-original-title='Branch' id="Stock">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Stock
+                                </span>
+                            </a>
+                        </li>*@
+
+
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Purchase)' data-original-title='Branch' id="Purchase">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>
+                                    Purchase
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Party)' data-original-title='Party' id="Party">
+                                <i class='fa fa-indent'></i>
+                                <span class='hidden-minibar'>Customer</span>
+                            </a>
+                        </li>
+
+
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Vendor)' data-original-title='Vendor' id="Vendor">
+                                <i class='fa fa-indent'></i>
+                                <span class='hidden-minibar'>Vendor</span>
+                            </a>
+                        </li>
+
+                        @if(SessionHelper.IsSuperAdmin)
+                        { 
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Users)' data-original-title='Users' id="Users">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Users
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Items)' data-original-title='Items' id="Items">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Items
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Unit)' data-original-title='Items' id="Unit">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Units
+                                </span>
+                            </a>
+                        </li>
+                        }
+
+                        @if(SessionHelper.IsSuperAdmin)
+                        { 
+                        <li class=' '>
+                            <a href='@Url.Action(ActionName.Index, ControllerName.Branch)' data-original-title='Branch' id="Branch">
+                                <i class='fa fa-tint'></i>
+                                <span class='hidden-minibar'>Branch
+                                </span>
+                            </a>
+                        </li>
+                        }
+
+                    </ul>
+
+                    <!-- /.Menu -->
+                    <!-- /.User   -->
+                </div>
+            </div>
+            <div class="content  animated fadeInBig">
+                <div class="main-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="jSplash">
+        <section class="selected">
+            <h1>
+                <a href="#" class="brand">
+                    <img src="~/Content/images/delighted.png" alt="">
+                </a>
+            </h1>
+        </section>
+    </div>
+    <script src="~/Scripts/jpreloader/jpreLoader.min.js"></script>
+    <script src="~/Scripts/jpreloader/preloader-delighted.js"></script>
+    <script src="~/Scripts/JQuery/jquery.loadmask.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.accordion.js"></script>
+    <script src="~/Scripts/core.js"></script>
+    <script src="~/Scripts/bootbox.js"></script>
+
+
+    <script src="~/Scripts/Custom/ajaxCall.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+@Html.Raw(ViewBag.openPopup)
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.site-holder').hide();
+        kendo.culture('en-GB');
+        $.validator.addMethod('date',
+               function (value, element) {
+                   return this.optional(element) || kendo.parseDate(value);
+               });
+    });
+
+</script>

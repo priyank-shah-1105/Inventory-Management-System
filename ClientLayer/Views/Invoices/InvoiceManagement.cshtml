@@ -1,0 +1,128 @@
+﻿@using System.Collections
+@using Client
+@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+@model InvoiceMaster
+
+<script src="~/Scripts/icheck/icheck.js"></script>
+<style>
+    .icheckbox_square-blue {
+        margin-right: 5px !important;
+    }
+
+    .field-validation-error {
+        display: inline-block !important;
+    }
+</style>
+
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Invoice Management
+                </h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm(ActionName.Save, ControllerName.Invoice, FormMethod.Post, new { @class = "form-horizontal", @id = "defaultForm" }))
+                {
+                    @Html.HiddenFor(model => model.InvoiceId)
+                    @Html.HiddenFor(model => model.InvoiceNr)
+                    @Html.HiddenFor(model => model.CreatedBy)
+                    @Html.HiddenFor(model => model.CreatedOn)
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Customer</label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().ComboBox()
+                                  .Name("PartyId")
+                                  .DataTextField("Name")
+                                  .DataValueField("PartyId")
+                                  .DataSource(source => source.Read(read => read.Action(ActionName.BindParty, ControllerName.Invoice)))
+                                   .Suggest(true)
+                                   .Filter(FilterType.Contains).HtmlAttributes(new { @style = "width:300px !important",@data_value_primitive = "true" })
+                                   .Placeholder(CommonHelper.PleaseSelect))
+                            @Html.ValidationMessageFor(x => x.PartyId)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Invoice date</label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().DatePickerFor(m => m.InvoiceDate).HtmlAttributes(new { style = "display:block !important" }))
+                            @Html.ValidationMessageFor(x => x.InvoiceDate)
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Include VAT</label>
+                        <div class="col-sm-10">
+                            @Html.CheckBoxFor(model => model.IsVat, new { @class = "square-input" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().Grid<InvoiceLineMaster>()
+                                  .Name("grid")
+                                  .Columns(columns =>
+                                  {
+                                      columns.ForeignKey(p => p.ItemId, (IEnumerable)ViewBag.ItemList, "ItemId", "Name").Title("Item");
+                                      columns.Bound(d => d.Qty).Title("Qty").EditorTemplateName("Integer");
+                                      columns.Bound(d => d.Rate).Title("Rate").Format("{0:c2}").EditorTemplateName("Currency");
+                                      columns.Bound(d => d.Amount).Title("Amount").Format("{0:c2}");
+                                      columns.Command(command =>
+                                      {
+                                          command.Edit().Text(" ").UpdateText(" ").CancelText(" ");
+                                          command.Destroy().Text(" ");
+                                      })
+                                         .Title("Action")
+                                         .HtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit).HeaderHtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit);
+                                  })
+                                  .ToolBar(grid => grid.Create())
+                                  .Editable(editable => editable.Mode(GridEditMode.PopUp))
+                                  .Selectable()
+                                  .DataSource(dataSource => dataSource
+                                      .Ajax()
+                                      .Model(model => model.Id(d => d.InvoiceLineId))
+                                      .Events(events => events.Error("onError"))
+                                      .Create(update => update.Action("InvoiceLinesCreate", ControllerName.Invoice))
+                                      .Read(read => read.Action("InvoiceLinesRead", ControllerName.Invoice))
+                                      .Update(update => update.Action("InvoiceLinesUpdate", ControllerName.Invoice))
+                                      .Destroy(update => update.Action("InvoiceLinesDestroy", ControllerName.Invoice))
+                                  )
+                                  )
+                        </div>
+                    </div>
+                    
+                 
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-6">
+                            <input class="btn btn-default" type="submit" value="Save" name="create" />
+                            @Html.ActionLink("Cancel", ActionName.Index, ControllerName.Invoice, null, new { @class = "btn btn-default", title = "Cancel" })
+                        </div>
+                    </div>
+                   
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.square-input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_polaris',
+            increaseArea: '20%' // optional
+        });
+
+        $("#PartyId").data("kendoComboBox").input.attr("placeholder", "@CommonHelper.PleaseSelect");
+    });
+</script>
+

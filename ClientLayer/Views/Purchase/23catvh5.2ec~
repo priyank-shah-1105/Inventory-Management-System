@@ -1,0 +1,149 @@
+﻿@using Client
+@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+
+
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Stocks
+                </h3>
+            </div>
+            <div class="panel-body">
+                @(Html.Kendo().Grid<usp_GetPurchases_Result>()
+                      .Name("gvInvoices")
+                      .Columns(columns =>
+                      {
+                          columns.Command(command =>
+                          {
+                              command.Custom("Edit").Click("editPurchase").Text(" ");
+                              command.Custom("Delete").Click("deletePurchase").Text(" ");
+                              command.Custom("Purchase").Click("printPurchase").Text(" ");
+                          })
+                           .Title("Action")
+                           .HtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEditAssign).HeaderHtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEditAssign);
+                          columns.Bound(d => d.UserName).Title("Username");
+                          columns.Bound(d => d.PurchaseNr).Title("Invoice #");
+                          columns.Bound(d => d.EntryDate).Title("Date").Format("{0:dd/MM/yyyy}");
+                          columns.Bound(d => d.Amount).Title("Amount").Format("{0:c2}");
+                      })
+                      .ToolBar(toolbar => toolbar.Template("<a class='k-button k-button-icontext' onclick='addPurchase()' href='javascript:void(0)'><span class='k-icon k-add'></span>Add Stock</a>"))
+                      .Pageable()
+                      .ClientDetailTemplateId("template")
+                      .Sortable(sortable => sortable.AllowUnsort(false))
+                      .Events(events => events.DataBound("dataBound"))
+                      .Filterable(filterable => filterable
+                        .Extra(true)
+                        .Operators(ops => 
+                            ops.ForString(str => str.Clear()
+                                                    .Contains("Contains")
+                                                    .StartsWith("Starts with")
+                                                    .EndsWith("Ends with")
+                                                    .IsEqualTo("Is equal to"))
+                        ))
+                      .DataSource(dataSource => dataSource
+                          .Ajax()
+                          .ServerOperation(false)
+                          .Group(group => group.Add(p => p.Branch))
+                          .PageSize(CommonHelper.PageSize)
+                          .Read(read => read.Action(ActionName.PurchaseKendoRead, ControllerName.Purchase))
+                      ))
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="template" type="text/kendo-tmpl">
+    @(Html.Kendo().Grid<usp_GetPurchaseLines_Result>()
+          .Name("gvInvoices_#=PurchaseId#")
+          .Columns(columns =>
+          {
+
+              columns.Bound(o => o.ItemName).Title("Item name");
+              columns.Bound(o => o.Qty).Title("Qty");
+              columns.Bound(o => o.UnitPrice).Title("Unit price").Format("{0:c2}");
+              columns.Bound(o => o.LineAmount).Title("Line amount").Format("{0:c2}");
+          })
+          .Filterable(filterable => filterable
+                        .Extra(true)
+                        .Operators(ops => 
+                            ops.ForString(str => str.Clear()
+                                                    .Contains("Contains")
+                                                    .StartsWith("Starts with")
+                                                    .EndsWith("Ends with")
+                                                    .IsEqualTo("Is equal to"))
+                        ))
+          .Pageable()
+          .DataSource(dataSource => dataSource
+              .Ajax()
+              .PageSize(10)
+              .Read(read => read.Action(ActionName.PurchaseLinesKendoRead, ControllerName.Purchase, new { purchaseId = "#=PurchaseId#" }))
+          )
+          .Pageable()
+          .Sortable()
+          .ToClientTemplate()
+          )
+</script>
+
+
+
+<script>
+    function dataBound() {
+        $('.k-grid-Edit').find('span').addClass('k-icon k-edit');
+        $('.k-grid-Delete').find('span').addClass('k-icon k-delete');
+        $('.k-grid-Invoice').find('span').addClass('fa fa-download');
+    }
+
+    function addPurchase() {
+        window.location.href = '@Url.Action(ActionName.Create, ControllerName.Purchase)';
+
+    }
+
+    function editPurchase(e) {
+        e.preventDefault();
+        var tr = $(e.target).closest("tr");
+        var data = this.dataItem(tr);
+        var url = '@Url.Action(ActionName.Edit, ControllerName.Purchase)';
+        if (data != null)
+            window.location.href = url + '?purchaseId=' + data.PurchaseId;
+    }
+
+    function printPurchase(e) {
+        e.preventDefault();
+        var tr = $(e.target).closest("tr");
+        var data = this.dataItem(tr);
+        var url = '@Url.Action(ActionName.ShowPurchase, ControllerName.Purchase)';
+        if (data != null)
+            window.location.href = url + '?PurchaseId=' + data.PurchaseId;
+    }
+
+
+    function deletePurchase(e) {
+        bootbox.confirm('Are you sure you want to delete these stock?', function (result) {
+            if (result == true) {
+                e.preventDefault();
+                var grid = $("#gvPurchases").data("kendoGrid");
+                var tr = $(e.target).closest("tr");
+                var data = grid.dataItem(tr);
+                var url = '@Url.Action(ActionName.KendoDestroy, ControllerName.Purchase)';
+                if (data != null)
+                    callwebservice(url, '', '', 'purchaseId=' + data.PurchaseId, DeleteComplete, false, true, datatypeEnum.text);
+            }
+        }, 'popup-confirmation');
+    }
+
+    function DeleteComplete(returString) {
+        if (returString != null) {
+            if (returString != "") {
+                showMessageOnly(returString, 'popup-error');
+            } else {
+                readKendoGrid('gvPurchases');
+            }
+        }
+    }
+</script>

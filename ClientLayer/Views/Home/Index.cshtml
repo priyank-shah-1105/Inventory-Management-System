@@ -1,0 +1,44 @@
+﻿@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Stocks
+                </h3>
+            </div>
+            <div class="panel-body">
+                @(Html.Kendo().Grid<usp_DashboardStocks_Result>()
+                      .Name("grid")
+                      .Columns(columns =>
+                      {
+                          columns.Bound(d => d.ItemName).Title("Item name");
+                          columns.Bound(d => d.ItemCount).Title("Qty");
+                      })
+                      .Pageable()
+                      .Sortable(sortable => sortable.AllowUnsort(false))
+                      .Filterable(filterable => filterable
+                        .Extra(true)
+                        .Operators(ops =>
+                            ops.ForString(str => str.Clear()
+                                                    .Contains("Contains")
+                                                    .StartsWith("Starts with")
+                                                    .EndsWith("Ends with")
+                                                    .IsEqualTo("Is equal to"))
+                        ))
+                      .DataSource(dataSource => dataSource
+                          .Ajax()
+                          .ServerOperation(false)
+                          .Group(group => group.Add(p => p.Branch))
+                          .PageSize(CommonHelper.PageSize)
+                          .Events(events => events.Error("onError"))
+                          .Read(read => read.Action(ActionName.InvoiceKendoRead, ControllerName.Home))
+                      ))
+            </div>
+        </div>
+    </div>
+</div>
+

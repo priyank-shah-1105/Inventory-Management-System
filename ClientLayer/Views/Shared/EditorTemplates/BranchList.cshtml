@@ -1,0 +1,14 @@
+﻿@using CommonLayer
+@using Kendo.Mvc.UI
+
+
+@model DataLayer.DatabaseModel.BranchMaster
+
+
+
+@(Html.Kendo().DropDownListFor(m => m.BranchId)
+        .Name("BranchId")
+        .OptionLabel(CommonHelper.PleaseSelect)
+            .DataTextField("Name")
+            .DataValueField("BranchId")
+            .BindTo(ViewBag.Branch))

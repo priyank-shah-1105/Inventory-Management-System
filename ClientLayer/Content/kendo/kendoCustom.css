@@ -1,0 +1,87 @@
+﻿.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    min-width: 30px !important;
+}
+
+.k-grid tbody .k-button-icontext .k-icon, .k-button-icontext .k-image {
+    margin: 0 !important;
+}
+
+.k-edit-form-container {
+    width: 650px !important;
+}
+
+a.disabled {
+    cursor: default !important;
+    pointer-events: none;
+}
+
+#grid {
+    height: 100%;
+}
+
+.k-edit-form-container .editor-label {
+    width: 20% !important;
+}
+
+
+.k-edit-form-container .k-callout {
+    border-color: transparent !important;
+    border-width: 6px !important;
+    height: 0 !important;
+    position: absolute !important;
+    width: 0 !important;
+}
+
+.k-edit-form-container .editor-field {
+    width: 70% !important;
+}
+
+
+.k-edit-form-container .field-validation-error {
+    margin: 0 !important;
+    margin-left: 5px !important;
+    display: inline-block !important;
+}
+
+.k-edit-form-container .k-autocomplete,
+.k-edit-form-container .k-combobox,
+.k-edit-form-container .k-datepicker,
+.k-edit-form-container .k-timepicker,
+.k-edit-form-container .k-datetimepicker,
+.k-edit-form-container .k-colorpicker,
+.k-edit-form-container .k-numerictextbox,
+.k-edit-form-container .k-dropdown,
+.k-edit-form-container .k-selectbox,
+.k-edit-form-container .k-textbox {
+    width: 20em !important;
+}
+
+.form-horizontal .k-autocomplete,
+.form-horizontal.k-combobox,
+.form-horizontal .k-datepicker,
+.form-horizontal .k-timepicker,
+.form-horizontal .k-datetimepicker,
+.form-horizontal .k-colorpicker,
+.form-horizontal .k-numerictextbox,
+.form-horizontal .k-dropdown,
+.form-horizontal .k-selectbox,
+.form-horizontal .k-textbox {
+    width: 30em !important;
+}
+
+.form-horizontal .field-validation-error {
+    background-color: #ffe13a;
+    border-color: #ffe13a;
+    color: #4c5356;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    background-repeat: repeat-x;
+    border-style: solid;
+    border-width: 1px;
+    min-width: 20px;
+    padding: 4px 5px 4px 6px;
+    position: absolute;
+    text-align: center;
+    z-index: 12000;
+    margin-left: 5px !important;
+    border-radius: 3px;
+}

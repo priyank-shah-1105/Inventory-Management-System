@@ -1,0 +1,57 @@
+﻿table.form td .aln_right
+{
+    width: 130px;
+    text-align: right !important;
+}
+
+.alignLeft
+{
+    text-align: left !important;
+}
+
+.alignRight
+{
+    /*width: 70px !important;*/
+    text-align: right !important;
+}
+
+.width80px {
+    width: 80px;
+}
+
+.clear
+{
+    clear: both;
+    padding: 0;
+    margin: 0;
+    height: 0;
+}
+
+.clr
+{
+    clear: both;
+}
+
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+
+th, td
+{
+    padding: 0px;
+}
+
+
+
+th, td
+{
+    vertical-align: middle;
+}
+
+.chartWrapper {
+    height: 250px;
+    position: relative;
+}

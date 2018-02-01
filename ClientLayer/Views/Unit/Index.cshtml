@@ -1,0 +1,72 @@
+﻿@using Client
+@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+
+
+
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Unit
+                </h3>
+            </div>
+            <div class="panel-body">
+                @(Html.Kendo().Grid<UnitMaster>()
+                      .Name("grid")
+                      .Columns(columns =>
+                      {
+                          columns.Command(command =>
+                          {
+                              command.Edit().Text(" ").UpdateText(" ").CancelText(" ");
+                              command.Destroy().Text(" ");
+                          })
+                              .Title("Action")
+                              .HtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit).HeaderHtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit);
+                          columns.Bound(d => d.Name).Title("Name");
+                      })
+                      .Editable(editable =>
+                      {
+                          editable.Mode(GridEditMode.PopUp);
+                          editable.DisplayDeleteConfirmation("Are you sure you want to delete the Unit?");
+                      })
+                               .ToolBar(toolbar => toolbar.Create().Text("Add unit"))
+                      .Pageable()
+                      .Filterable(filterable => filterable
+                        .Extra(true)
+                        .Operators(ops =>
+                            ops.ForString(str => str.Clear()
+                                                    .Contains("Contains")
+                                                    .StartsWith("Starts with")
+                                                    .EndsWith("Ends with")
+                                                    .IsEqualTo("Is equal to"))
+                        ))
+                      .Sortable(sortable => sortable.AllowUnsort(false))
+                      .Events(grid => grid.Edit("edit"))
+                      .DataSource(dataSource => dataSource
+                          .Ajax()
+                          .ServerOperation(false)
+                          .PageSize(CommonHelper.PageSize)
+                          .Events(events => events.Error("onError"))
+                          .Model(model => model.Id(d => d.UnitId))
+                                  .Read(read => read.Action(ActionName.KendoRead, ControllerName.Unit))
+                                  .Destroy(delete => delete.Action(ActionName.KendoDestroy, ControllerName.Unit))
+                                  .Create(update => update.Action(ActionName.KendoSave, ControllerName.Unit))
+                          .Update(update => update.Action(ActionName.KendoSave, ControllerName.Unit))
+
+                      ))
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function edit(e) {
+        if (e.model.isNew()) {
+            e.model.set("IsActive", true);
+        }
+    }
+</script>

@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StockModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="StockEntities" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="BranchMasters" EntityType="StockModel.BranchMaster" />
+    <EntitySet Name="ItemMasters" EntityType="StockModel.ItemMaster" />
+    <EntitySet Name="PartyMasters" EntityType="StockModel.PartyMaster" />
+    <FunctionImport Name="usp_GetStocks" ReturnType="Collection(StockModel.usp_GetStocks_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetStocksLines" ReturnType="Collection(StockModel.usp_GetStocksLines_Result)">
+      <Parameter Name="StockId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="UsersMasters" EntityType="StockModel.UsersMaster" />
+    <AssociationSet Name="FK_UsersMaster_BranchMaster" Association="StockModel.FK_UsersMaster_BranchMaster">
+      <End Role="BranchMaster" EntitySet="BranchMasters" />
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartyMaster_UsersMaster" Association="StockModel.FK_PartyMaster_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="PartyMaster" EntitySet="PartyMasters" />
+    </AssociationSet>
+    <FunctionImport Name="usp_DashboardStocks" ReturnType="Collection(StockModel.usp_DashboardStocks_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="UnitMasters" EntityType="StockModel.UnitMaster" />
+    <AssociationSet Name="FK_ItemMaster_UnitMaster" Association="StockModel.FK_ItemMaster_UnitMaster">
+      <End Role="UnitMaster" EntitySet="UnitMasters" />
+      <End Role="ItemMaster" EntitySet="ItemMasters" />
+    </AssociationSet>
+    <FunctionImport Name="usp_GetItems" ReturnType="Collection(StockModel.usp_GetItems_Result)" />
+    <EntitySet Name="InvoiceMasters" EntityType="StockModel.InvoiceMaster" />
+    <AssociationSet Name="FK_InvoiceMaster_PartyMaster" Association="StockModel.FK_InvoiceMaster_PartyMaster">
+      <End Role="PartyMaster" EntitySet="PartyMasters" />
+      <End Role="InvoiceMaster" EntitySet="InvoiceMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceMaster_UsersMaster" Association="StockModel.FK_InvoiceMaster_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="InvoiceMaster" EntitySet="InvoiceMasters" />
+    </AssociationSet>
+    <FunctionImport Name="usp_GetInvoiceLines" ReturnType="Collection(StockModel.usp_GetInvoiceLines_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetInvoices" ReturnType="Collection(StockModel.usp_GetInvoices_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="InvoiceLineMasters" EntityType="StockModel.InvoiceLineMaster" />
+    <AssociationSet Name="FK_InvoiceLineMaster_InvoiceMaster" Association="StockModel.FK_InvoiceLineMaster_InvoiceMaster">
+      <End Role="InvoiceMaster" EntitySet="InvoiceMasters" />
+      <End Role="InvoiceLineMaster" EntitySet="InvoiceLineMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceLineMaster_ItemMaster" Association="StockModel.FK_InvoiceLineMaster_ItemMaster">
+      <End Role="ItemMaster" EntitySet="ItemMasters" />
+      <End Role="InvoiceLineMaster" EntitySet="InvoiceLineMasters" />
+    </AssociationSet>
+    <FunctionImport Name="rptInvoiceLines" ReturnType="Collection(StockModel.rptInvoiceLines_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rptInvoices" ReturnType="Collection(StockModel.rptInvoices_Result)">
+      <Parameter Name="InvoiceId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Payment" EntityType="StockModel.Payment" />
+    <AssociationSet Name="FK_Payment_InvoiceMaster" Association="StockModel.FK_Payment_InvoiceMaster">
+      <End Role="InvoiceMaster" EntitySet="InvoiceMasters" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_PartyMaster" Association="StockModel.FK_Payment_PartyMaster">
+      <End Role="PartyMaster" EntitySet="PartyMasters" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <EntitySet Name="StockMaster" EntityType="StockModel.StockMaster" />
+    <AssociationSet Name="FK_StockMaster_PartyMaster" Association="StockModel.FK_StockMaster_PartyMaster">
+      <End Role="PartyMaster" EntitySet="PartyMasters" />
+      <End Role="StockMaster" EntitySet="StockMaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_StockMaster" Association="StockModel.FK_Payment_StockMaster">
+      <End Role="StockMaster" EntitySet="StockMaster" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockMaster_UsersMaster" Association="StockModel.FK_StockMaster_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="StockMaster" EntitySet="StockMaster" />
+    </AssociationSet>
+    <EntitySet Name="StockItemMasters" EntityType="StockModel.StockItemMaster" />
+    <AssociationSet Name="FK_StockItemMaster_ItemMaster" Association="StockModel.FK_StockItemMaster_ItemMaster">
+      <End Role="ItemMaster" EntitySet="ItemMasters" />
+      <End Role="StockItemMaster" EntitySet="StockItemMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockItemMaster_StockMaster" Association="StockModel.FK_StockItemMaster_StockMaster">
+      <End Role="StockMaster" EntitySet="StockMaster" />
+      <End Role="StockItemMaster" EntitySet="StockItemMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_UsersMaster" Association="StockModel.FK_Payment_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <EntitySet Name="VendorMasters" EntityType="StockModel.VendorMaster" />
+    <AssociationSet Name="FK_VendorMaster_UsersMaster" Association="StockModel.FK_VendorMaster_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="VendorMaster" EntitySet="VendorMasters" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseItemMasters" EntityType="StockModel.PurchaseItemMaster" />
+    <EntitySet Name="PurchaseMasters" EntityType="StockModel.PurchaseMaster" />
+    <EntitySet Name="Purchasepays" EntityType="StockModel.Purchasepay" />
+    <AssociationSet Name="FK_PurchaseItemMaster_ItemMaster" Association="StockModel.FK_PurchaseItemMaster_ItemMaster">
+      <End Role="ItemMaster" EntitySet="ItemMasters" />
+      <End Role="PurchaseItemMaster" EntitySet="PurchaseItemMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseItemMaster_PurchaseMaster" Association="StockModel.FK_PurchaseItemMaster_PurchaseMaster">
+      <End Role="PurchaseMaster" EntitySet="PurchaseMasters" />
+      <End Role="PurchaseItemMaster" EntitySet="PurchaseItemMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseMaster_UsersMaster" Association="StockModel.FK_PurchaseMaster_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="PurchaseMaster" EntitySet="PurchaseMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchaseMaster_VendorMaster" Association="StockModel.FK_PurchaseMaster_VendorMaster">
+      <End Role="VendorMaster" EntitySet="VendorMasters" />
+      <End Role="PurchaseMaster" EntitySet="PurchaseMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasepay_PurchaseMaster" Association="StockModel.FK_Purchasepay_PurchaseMaster">
+      <End Role="PurchaseMaster" EntitySet="PurchaseMasters" />
+      <End Role="Purchasepay" EntitySet="Purchasepays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasepay_UsersMaster" Association="StockModel.FK_Purchasepay_UsersMaster">
+      <End Role="UsersMaster" EntitySet="UsersMasters" />
+      <End Role="Purchasepay" EntitySet="Purchasepays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchasepay_VendorMaster" Association="StockModel.FK_Purchasepay_VendorMaster">
+      <End Role="VendorMaster" EntitySet="VendorMasters" />
+      <End Role="Purchasepay" EntitySet="Purchasepays" />
+    </AssociationSet>
+    <FunctionImport Name="usp_GetPurchases" ReturnType="Collection(StockModel.usp_GetPurchases_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetPurchaseLines" ReturnType="Collection(StockModel.usp_GetPurchaseLines_Result)">
+      <Parameter Name="PurchaseId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetCustomer" ReturnType="Collection(StockModel.usp_GetCustomer_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetVendor" ReturnType="Collection(StockModel.usp_GetVendor_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rptPurchaseItems" ReturnType="Collection(StockModel.rptPurchaseItems_Result)">
+      <Parameter Name="PurchaseId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rptPurchases" ReturnType="Collection(StockModel.rptPurchases_Result)">
+      <Parameter Name="PurchaseId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rptPurchases1" ReturnType="Collection(StockModel.rptPurchases1_Result)">
+      <Parameter Name="PurchaseId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rptPurchase" ReturnType="Collection(StockModel.rptPurchase_Result)">
+      <Parameter Name="PurchaseId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="BranchMaster">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UsersMasters" Relationship="StockModel.FK_UsersMaster_BranchMaster" FromRole="BranchMaster" ToRole="UsersMaster" />
+  </EntityType>
+  <EntityType Name="ItemMaster">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Type="Int32" Name="UnitId" Nullable="false" />
+    <NavigationProperty Name="UnitMaster" Relationship="StockModel.FK_ItemMaster_UnitMaster" FromRole="ItemMaster" ToRole="UnitMaster" />
+    <NavigationProperty Name="InvoiceLineMasters" Relationship="StockModel.FK_InvoiceLineMaster_ItemMaster" FromRole="ItemMaster" ToRole="InvoiceLineMaster" />
+    <NavigationProperty Name="StockItemMasters" Relationship="StockModel.FK_StockItemMaster_ItemMaster" FromRole="ItemMaster" ToRole="StockItemMaster" />
+    <NavigationProperty Name="PurchaseItemMasters" Relationship="StockModel.FK_PurchaseItemMaster_ItemMaster" FromRole="ItemMaster" ToRole="PurchaseItemMaster" />
+  </EntityType>
+  <EntityType Name="PartyMaster">
+    <Key>
+      <PropertyRef Name="PartyId" />
+    </Key>
+    <Property Name="PartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_PartyMaster_UsersMaster" FromRole="PartyMaster" ToRole="UsersMaster" />
+    <NavigationProperty Name="InvoiceMasters" Relationship="StockModel.FK_InvoiceMaster_PartyMaster" FromRole="PartyMaster" ToRole="InvoiceMaster" />
+    <NavigationProperty Name="Payment" Relationship="StockModel.FK_Payment_PartyMaster" FromRole="PartyMaster" ToRole="Payment" />
+    <NavigationProperty Name="StockMaster" Relationship="StockModel.FK_StockMaster_PartyMaster" FromRole="PartyMaster" ToRole="StockMaster" />
+  </EntityType>
+  <ComplexType Name="usp_GetStocks_Result">
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" />
+    <Property Type="String" Name="InvoiceNr" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="StockId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetStocksLines_Result">
+    <Property Type="String" Name="ItemName" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LineAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="StockItemId" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="UsersMaster">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="BranchId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Boolean" Name="IsSuperAdmin" Nullable="false" />
+    <NavigationProperty Name="BranchMaster" Relationship="StockModel.FK_UsersMaster_BranchMaster" FromRole="UsersMaster" ToRole="BranchMaster" />
+    <NavigationProperty Name="PartyMasters" Relationship="StockModel.FK_PartyMaster_UsersMaster" FromRole="UsersMaster" ToRole="PartyMaster" />
+    <NavigationProperty Name="InvoiceMasters" Relationship="StockModel.FK_InvoiceMaster_UsersMaster" FromRole="UsersMaster" ToRole="InvoiceMaster" />
+    <NavigationProperty Name="StockMaster" Relationship="StockModel.FK_StockMaster_UsersMaster" FromRole="UsersMaster" ToRole="StockMaster" />
+    <NavigationProperty Name="Payments" Relationship="StockModel.FK_Payment_UsersMaster" FromRole="UsersMaster" ToRole="Payment" />
+    <NavigationProperty Name="VendorMasters" Relationship="StockModel.FK_VendorMaster_UsersMaster" FromRole="UsersMaster" ToRole="VendorMaster" />
+    <NavigationProperty Name="PurchaseMasters" Relationship="StockModel.FK_PurchaseMaster_UsersMaster" FromRole="UsersMaster" ToRole="PurchaseMaster" />
+    <NavigationProperty Name="Purchasepays" Relationship="StockModel.FK_Purchasepay_UsersMaster" FromRole="UsersMaster" ToRole="Purchasepay" />
+  </EntityType>
+  <Association Name="FK_UsersMaster_BranchMaster">
+    <End Type="StockModel.BranchMaster" Role="BranchMaster" Multiplicity="1" />
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BranchMaster">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="UsersMaster">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartyMaster_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.PartyMaster" Role="PartyMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PartyMaster">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_DashboardStocks_Result">
+    <Property Type="Int32" Name="ItemCount" Nullable="true" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+    <Property Type="String" Name="ItemName" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="UnitMaster">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Type="Int32" Name="UnitId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ItemMasters" Relationship="StockModel.FK_ItemMaster_UnitMaster" FromRole="UnitMaster" ToRole="ItemMaster" />
+  </EntityType>
+  <Association Name="FK_ItemMaster_UnitMaster">
+    <End Type="StockModel.UnitMaster" Role="UnitMaster" Multiplicity="1" />
+    <End Type="StockModel.ItemMaster" Role="ItemMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitMaster">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="ItemMaster">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_GetItems_Result">
+    <Property Type="Int32" Name="ItemId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="InvoiceMaster">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Type="Int32" Name="InvoiceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceNr" Nullable="false" />
+    <Property Type="Int32" Name="PartyId" Nullable="false" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="0" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="VatAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsVat" Nullable="false" />
+    <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <NavigationProperty Name="PartyMaster" Relationship="StockModel.FK_InvoiceMaster_PartyMaster" FromRole="InvoiceMaster" ToRole="PartyMaster" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_InvoiceMaster_UsersMaster" FromRole="InvoiceMaster" ToRole="UsersMaster" />
+    <NavigationProperty Name="InvoiceLineMasters" Relationship="StockModel.FK_InvoiceLineMaster_InvoiceMaster" FromRole="InvoiceMaster" ToRole="InvoiceLineMaster" />
+    <NavigationProperty Name="Payment" Relationship="StockModel.FK_Payment_InvoiceMaster" FromRole="InvoiceMaster" ToRole="Payment" />
+  </EntityType>
+  <Association Name="FK_InvoiceMaster_PartyMaster">
+    <End Type="StockModel.PartyMaster" Role="PartyMaster" Multiplicity="1" />
+    <End Type="StockModel.InvoiceMaster" Role="InvoiceMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartyMaster">
+        <PropertyRef Name="PartyId" />
+      </Principal>
+      <Dependent Role="InvoiceMaster">
+        <PropertyRef Name="PartyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceMaster_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.InvoiceMaster" Role="InvoiceMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="InvoiceMaster">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_GetInvoiceLines_Result">
+    <Property Type="Int32" Name="InvoiceId" Nullable="false" />
+    <Property Type="Int32" Name="InvoiceLineId" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Item" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="usp_GetInvoices_Result">
+    <Property Type="Int32" Name="InvoiceId" Nullable="false" />
+    <Property Type="Int32" Name="InvoiceNr" Nullable="false" />
+    <Property Type="DateTime" Name="InvoiceDate" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="VatAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="PartyName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="InvoiceLineMaster">
+    <Key>
+      <PropertyRef Name="InvoiceLineId" />
+    </Key>
+    <Property Type="Int32" Name="InvoiceLineId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="InvoiceId" Nullable="false" />
+    <Property Type="Int32" Name="ItemId" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="InvoiceMaster" Relationship="StockModel.FK_InvoiceLineMaster_InvoiceMaster" FromRole="InvoiceLineMaster" ToRole="InvoiceMaster" />
+    <NavigationProperty Name="ItemMaster" Relationship="StockModel.FK_InvoiceLineMaster_ItemMaster" FromRole="InvoiceLineMaster" ToRole="ItemMaster" />
+  </EntityType>
+  <Association Name="FK_InvoiceLineMaster_InvoiceMaster">
+    <End Type="StockModel.InvoiceMaster" Role="InvoiceMaster" Multiplicity="1" />
+    <End Type="StockModel.InvoiceLineMaster" Role="InvoiceLineMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InvoiceMaster">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="InvoiceLineMaster">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceLineMaster_ItemMaster">
+    <End Type="StockModel.ItemMaster" Role="ItemMaster" Multiplicity="1" />
+    <End Type="StockModel.InvoiceLineMaster" Role="InvoiceLineMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMaster">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="InvoiceLineMaster">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="rptInvoiceLines_Result">
+    <Property Type="String" Name="ItemName" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="rptInvoices_Result">
+    <Property Type="Int32" Name="InvoiceNr" Nullable="false" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="PartyName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactDetails" Nullable="true" MaxLength="118" />
+    <Property Type="String" Name="AmountInWords" Nullable="true" />
+    <Property Type="Decimal" Name="TotalAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="VatAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Type="Int32" Name="PaymentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="Date" Precision="0" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="InvoiceNr" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="StockId" />
+    <Property Type="Int32" Name="PartyId" Nullable="false" />
+    <Property Type="Int32" Name="InvoiceId" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InvoiceMaster" Relationship="StockModel.FK_Payment_InvoiceMaster" FromRole="Payment" ToRole="InvoiceMaster" />
+    <NavigationProperty Name="PartyMaster" Relationship="StockModel.FK_Payment_PartyMaster" FromRole="Payment" ToRole="PartyMaster" />
+    <NavigationProperty Name="StockMaster" Relationship="StockModel.FK_Payment_StockMaster" FromRole="Payment" ToRole="StockMaster" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="false" Precision="0" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_Payment_UsersMaster" FromRole="Payment" ToRole="UsersMaster" />
+  </EntityType>
+  <Association Name="FK_Payment_InvoiceMaster">
+    <End Type="StockModel.InvoiceMaster" Role="InvoiceMaster" Multiplicity="0..1" />
+    <End Type="StockModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InvoiceMaster">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_PartyMaster">
+    <End Type="StockModel.PartyMaster" Role="PartyMaster" Multiplicity="1" />
+    <End Type="StockModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartyMaster">
+        <PropertyRef Name="PartyId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PartyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StockMaster">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Type="Int32" Name="StockId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PartyId" Nullable="false" />
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" Precision="0" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="InvoiceNr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <NavigationProperty Name="PartyMaster" Relationship="StockModel.FK_StockMaster_PartyMaster" FromRole="StockMaster" ToRole="PartyMaster" />
+    <NavigationProperty Name="Payment" Relationship="StockModel.FK_Payment_StockMaster" FromRole="StockMaster" ToRole="Payment" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_StockMaster_UsersMaster" FromRole="StockMaster" ToRole="UsersMaster" />
+    <NavigationProperty Name="StockItemMasters" Relationship="StockModel.FK_StockItemMaster_StockMaster" FromRole="StockMaster" ToRole="StockItemMaster" />
+  </EntityType>
+  <Association Name="FK_StockMaster_PartyMaster">
+    <End Type="StockModel.PartyMaster" Role="PartyMaster" Multiplicity="1" />
+    <End Type="StockModel.StockMaster" Role="StockMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartyMaster">
+        <PropertyRef Name="PartyId" />
+      </Principal>
+      <Dependent Role="StockMaster">
+        <PropertyRef Name="PartyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_StockMaster">
+    <End Type="StockModel.StockMaster" Role="StockMaster" Multiplicity="0..1" />
+    <End Type="StockModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockMaster">
+        <PropertyRef Name="StockId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="StockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockMaster_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.StockMaster" Role="StockMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="StockMaster">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StockItemMaster">
+    <Key>
+      <PropertyRef Name="StockItemId" />
+    </Key>
+    <Property Type="Int32" Name="StockItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="StockId" Nullable="false" />
+    <Property Type="Int32" Name="ItemId" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LineAmount" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="ItemMaster" Relationship="StockModel.FK_StockItemMaster_ItemMaster" FromRole="StockItemMaster" ToRole="ItemMaster" />
+    <NavigationProperty Name="StockMaster" Relationship="StockModel.FK_StockItemMaster_StockMaster" FromRole="StockItemMaster" ToRole="StockMaster" />
+  </EntityType>
+  <Association Name="FK_StockItemMaster_ItemMaster">
+    <End Type="StockModel.ItemMaster" Role="ItemMaster" Multiplicity="1" />
+    <End Type="StockModel.StockItemMaster" Role="StockItemMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMaster">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="StockItemMaster">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockItemMaster_StockMaster">
+    <End Type="StockModel.StockMaster" Role="StockMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="StockModel.StockItemMaster" Role="StockItemMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockMaster">
+        <PropertyRef Name="StockId" />
+      </Principal>
+      <Dependent Role="StockItemMaster">
+        <PropertyRef Name="StockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VendorMaster">
+    <Key>
+      <PropertyRef Name="VendorId" />
+    </Key>
+    <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_VendorMaster_UsersMaster" FromRole="VendorMaster" ToRole="UsersMaster" />
+    <NavigationProperty Name="PurchaseMasters" Relationship="StockModel.FK_PurchaseMaster_VendorMaster" FromRole="VendorMaster" ToRole="PurchaseMaster" />
+    <NavigationProperty Name="Purchasepays" Relationship="StockModel.FK_Purchasepay_VendorMaster" FromRole="VendorMaster" ToRole="Purchasepay" />
+  </EntityType>
+  <Association Name="FK_VendorMaster_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.VendorMaster" Role="VendorMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="VendorMaster">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseItemMaster">
+    <Key>
+      <PropertyRef Name="PurchaseItemId" />
+    </Key>
+    <Property Name="PurchaseItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" />
+    <Property Name="ItemId" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="LineAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="ItemMaster" Relationship="StockModel.FK_PurchaseItemMaster_ItemMaster" FromRole="PurchaseItemMaster" ToRole="ItemMaster" />
+    <NavigationProperty Name="PurchaseMaster" Relationship="StockModel.FK_PurchaseItemMaster_PurchaseMaster" FromRole="PurchaseItemMaster" ToRole="PurchaseMaster" />
+  </EntityType>
+  <EntityType Name="PurchaseMaster">
+    <Key>
+      <PropertyRef Name="PurchaseId" />
+    </Key>
+    <Property Name="PurchaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorId" Type="Int32" Nullable="false" />
+    <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PurchaseNr" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PurchaseItemMasters" Relationship="StockModel.FK_PurchaseItemMaster_PurchaseMaster" FromRole="PurchaseMaster" ToRole="PurchaseItemMaster" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_PurchaseMaster_UsersMaster" FromRole="PurchaseMaster" ToRole="UsersMaster" />
+    <NavigationProperty Name="VendorMaster" Relationship="StockModel.FK_PurchaseMaster_VendorMaster" FromRole="PurchaseMaster" ToRole="VendorMaster" />
+    <NavigationProperty Name="Purchasepays" Relationship="StockModel.FK_Purchasepay_PurchaseMaster" FromRole="PurchaseMaster" ToRole="Purchasepay" />
+  </EntityType>
+  <EntityType Name="Purchasepay">
+    <Key>
+      <PropertyRef Name="PurchasepayId" />
+    </Key>
+    <Property Name="PurchasepayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceNr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseId" Type="Int32" />
+    <Property Name="VendorId" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PurchaseMaster" Relationship="StockModel.FK_Purchasepay_PurchaseMaster" FromRole="Purchasepay" ToRole="PurchaseMaster" />
+    <NavigationProperty Name="UsersMaster" Relationship="StockModel.FK_Purchasepay_UsersMaster" FromRole="Purchasepay" ToRole="UsersMaster" />
+    <NavigationProperty Name="VendorMaster" Relationship="StockModel.FK_Purchasepay_VendorMaster" FromRole="Purchasepay" ToRole="VendorMaster" />
+  </EntityType>
+  <Association Name="FK_PurchaseItemMaster_ItemMaster">
+    <End Type="StockModel.ItemMaster" Role="ItemMaster" Multiplicity="1" />
+    <End Type="StockModel.PurchaseItemMaster" Role="PurchaseItemMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemMaster">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="PurchaseItemMaster">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseItemMaster_PurchaseMaster">
+    <End Type="StockModel.PurchaseMaster" Role="PurchaseMaster" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="StockModel.PurchaseItemMaster" Role="PurchaseItemMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseMaster">
+        <PropertyRef Name="PurchaseId" />
+      </Principal>
+      <Dependent Role="PurchaseItemMaster">
+        <PropertyRef Name="PurchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseMaster_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.PurchaseMaster" Role="PurchaseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PurchaseMaster">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchaseMaster_VendorMaster">
+    <End Type="StockModel.VendorMaster" Role="VendorMaster" Multiplicity="1" />
+    <End Type="StockModel.PurchaseMaster" Role="PurchaseMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VendorMaster">
+        <PropertyRef Name="VendorId" />
+      </Principal>
+      <Dependent Role="PurchaseMaster">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasepay_PurchaseMaster">
+    <End Type="StockModel.PurchaseMaster" Role="PurchaseMaster" Multiplicity="0..1" />
+    <End Type="StockModel.Purchasepay" Role="Purchasepay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseMaster">
+        <PropertyRef Name="PurchaseId" />
+      </Principal>
+      <Dependent Role="Purchasepay">
+        <PropertyRef Name="PurchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasepay_UsersMaster">
+    <End Type="StockModel.UsersMaster" Role="UsersMaster" Multiplicity="1" />
+    <End Type="StockModel.Purchasepay" Role="Purchasepay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersMaster">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Purchasepay">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchasepay_VendorMaster">
+    <End Type="StockModel.VendorMaster" Role="VendorMaster" Multiplicity="1" />
+    <End Type="StockModel.Purchasepay" Role="Purchasepay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VendorMaster">
+        <PropertyRef Name="VendorId" />
+      </Principal>
+      <Dependent Role="Purchasepay">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_GetPurchases_Result">
+    <Property Type="DateTime" Name="EntryDate" Nullable="false" />
+    <Property Type="Int32" Name="PurchaseNr" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="PurchaseId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetPurchaseLines_Result">
+    <Property Type="String" Name="ItemName" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LineAmount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="PurchaseItemId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetCustomer_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="PartyId" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetVendor_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="VendorId" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Branch" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="rptPurchaseItems_Result">
+    <Property Type="String" Name="ItemName" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="Decimal" Name="UnitPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="LineAmount" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="rptPurchases_Result">
+    <Property Type="String" Name="PurchaseNr" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PurchaseDate" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactDetails" Nullable="true" MaxLength="118" />
+    <Property Type="String" Name="AmountInWords" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount1" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="rptPurchases1_Result">
+    <Property Type="String" Name="PurchaseNr" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactDetails" Nullable="true" MaxLength="118" />
+    <Property Type="String" Name="AmountInWords" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="rptPurchase_Result">
+    <Property Type="Int32" Name="PurchaseNr" Nullable="false" />
+    <Property Type="String" Name="InvoiceDate" Nullable="true" MaxLength="8000" />
+    <Property Type="String" Name="VendorName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ContactDetails" Nullable="true" MaxLength="118" />
+    <Property Type="String" Name="AmountInWords" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+</Schema>

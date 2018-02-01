@@ -1,0 +1,75 @@
+﻿@using CommonLayer
+
+
+
+@model DataLayer.LoginIndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/JQuery/jquery.js"></script>
+    <script src="~/Scripts/JQuery/jquery.validate.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/JQuery/jquery.unobtrusive-ajax.min.js"></script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="header-section" style="background-color:#6793ae">
+            <a href="#">
+                <img src="@ThemeUrl.ImageUrl.GetClientSideFile("images/delighted.png")" alt="" /></a>
+            <ul class="menu"></ul>
+        </div>
+        <!--end of header -section-->
+        @using (Html.BeginForm(ActionName.ValidateUser, ControllerName.Login, FormMethod.Post, new { @class = "form-horizontal", @autocomplete = "off" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-section">
+                <div class="container">
+                    <div class="form-inputs">
+                        <h4>User login</h4>
+                        <div class="input-group">
+                            @Html.ValidationMessage("UserName", new { @style = "color:orange !important;font-weight: bold" })
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "required form-control", @placeholder = "Username" })
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                        <div class="input-group">
+                            @Html.ValidationMessage("Password", new { @style = "color:orange !important;font-weight: bold" })
+                            @Html.TextBoxFor(model => model.Password, new { @class = "required form-control", @placeholder = "Password", @type = "password", @autocomplete = "off" })
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+                        </div>
+                        @Html.CheckBoxFor(model => model.RememberMe, new { @class = "polaris-input", @id = "inlineCheckbox1" })
+                        <span class="check-text">Remember Me</span>
+                        <button type="submit" class="btn btn-info pull-right">Sign In</button>
+                        @*<h5><a href="@CommonHelper.CreateURL(ActionName.ForgotPasswordIndex, ControllerName.Login)" target="_blank">Forgot Your Password ?</a></h5>*@
+                    </div>
+                </div>
+            </div>
+            <!--emd of form-section-->
+        }
+        <div class="footer">
+            <p> &copy;<a href="#"><strong>Delighted</strong></a>All Rights Reserved</p>
+        </div>
+    </div>
+    <script src="~/Scripts/icheck/icheck.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.polaris-input').iCheck({
+                checkboxClass: 'icheckbox_polaris',
+                radioClass: 'iradio_polaris',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+</body>
+</html>

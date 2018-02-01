@@ -1,0 +1,119 @@
+﻿@using System.Collections
+@using Client
+@using CommonLayer
+@using DataLayer.DatabaseModel
+@using Kendo.Mvc.UI
+
+@model PurchaseMaster
+
+<div class="row grid">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <i class="fa fa-user"></i>
+                    Stock Management
+                </h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm(ActionName.Save, ControllerName.Purchase, FormMethod.Post, new { @class = "form-horizontal", @id = "defaultForm" }))
+                {
+                    @Html.HiddenFor(model => model.PurchaseId)
+                    @Html.HiddenFor(model => model.CreatedBy)
+
+                    @Html.ValidationSummary(true)
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Vendor</label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().ComboBox()
+                                  .Name("VendorId")
+                                  .DataTextField("Name")
+                                  .DataValueField("VendorId")
+                                  .DataSource(source => source.Read(read => read.Action(ActionName.BindVendor, ControllerName.Purchase)))
+                                   .Suggest(true)
+                                   .Filter(FilterType.Contains).HtmlAttributes(new { @style = "width:300px !important", @data_value_primitive = "true", @id = "VendorId" })
+                                   .Placeholder(CommonHelper.PleaseSelect))
+                            @Html.ValidationMessageFor(x => x.VendorId)
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Date</label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().DatePickerFor(m => m.EntryDate).HtmlAttributes(new { @style = "display:block !important" }))
+                            @Html.ValidationMessageFor(x => x.EntryDate)
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">PurchaseNr. #</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.PurchaseNr, new { @class = "k-textbox" })
+                            @Html.ValidationMessageFor(x => x.PurchaseNr)
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Amount</label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().CurrencyTextBoxFor(x => x.Amount).HtmlAttributes(new { style = "width:100%" }).Format("{0:c2}").Spinners(false).Min(0))
+                            @Html.ValidationMessageFor(x => x.Amount)
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            @(Html.Kendo().Grid<PurchaseItemMaster>()
+                                  .Name("grid")
+                                  .Columns(columns =>
+                                  {
+                                      columns.ForeignKey(p => p.ItemId, (IEnumerable)ViewBag.ItemList, "ItemId", "Name").Title("Item");
+                                      columns.Bound(d => d.UnitPrice).Title("Unit price").Format("{0:c2}").EditorTemplateName("Currency");
+                                      columns.Bound(d => d.LineAmount).Title("Line amount").Format("{0:c2}");
+                                      columns.Command(command =>
+                                      {
+                                          command.Edit().Text(" ").UpdateText(" ").CancelText(" ");
+                                          command.Destroy().Text(" ");
+                                      })
+                                         .Title("Action")
+                                         .HtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit).HeaderHtmlAttributes(CommonSettings.ActionCenterColumnStyleWithCanEdit);
+                                  })
+                                  .ToolBar(grid => grid.Create())
+                                  .Editable(editable => editable.Mode(GridEditMode.PopUp))
+                                  .Selectable()
+                                  .DataSource(dataSource => dataSource
+                                      .Ajax()
+                                      .Model(model => model.Id(d => d.PurchaseItemId))
+                                      .Events(events => events.Error("onError"))
+                                      .Create(update => update.Action("PurchaseLinesCreate", ControllerName.Purchase))
+                                      .Read(read => read.Action("PurchaseLinesRead", ControllerName.Purchase))
+                                      .Update(update => update.Action("PurchaseLinesUpdate", ControllerName.Purchase))
+                                      .Destroy(update => update.Action("PurchaseLinesDestroy", ControllerName.Purchase))
+                                  )
+                                  )
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-6">
+                            <input class="btn btn-default" type="submit" value="Save" name="create" />
+                            @Html.ActionLink("Cancel", ActionName.Index, ControllerName.Purchase, null, new { @class = "btn btn-default", title = "Cancel" })
+                        </div>
+                    </div>
+                   
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#VendorId").data("kendoComboBox").input.attr("placeholder", "@CommonHelper.PleaseSelect");
+    });
+
+</script>
